@@ -2,6 +2,7 @@
 
 control="0"
 count="0"
+incCond="inc"
 
 
 ###Candle
@@ -27,70 +28,73 @@ if [ "$input" = "1" ]; then
 fi
 done
 
-while [ $control = "0" ]
-do
 	if [ "$incCond" = "inc" ]; then
 
-	
-		if [ "$count" = "0" ]; then
     		echo " "
-		echo "1: More to the right"
-		else 
-		echo "1: a bit more"
-		fi
-		echo "2: Repeat"
-		echo "3: Done"
+		echo "1: venstre side"
+		echo "2: højre side"
+		echo "3: gentag"
 
 		while true; do
 		read -rsn1 input
 	
 		if [ "$input" = "1" ]; then
-			if [ "$count" = "0" ]; then
     			echo " "
-			echo "More to the right"
-			play LivingLabAudio/candle2_1more.mp3
-			count="1"
-			else 
+			echo "Ja nemlig her, det er i den midterste skuffe"
+			play AudiofilerLivingLab/candle4_1Inc.mp3
     			echo " "
-			echo "a little bit more"
-			play LivingLabAudio/candle2_2bit.mp3
-			fi
+			break
 		elif [ "$input" = "2" ]; then
     			echo " "
-			echo "the candle is on the right side of the shelf"
-			play LivingLabAudio/candle2_3more.mp3
+			echo "lidt længere til venstre"
+			play AudiofilerLivingLab/candle4_2Inc.mp3
+			sleep 2
+			echo " "
+			echo " ja her det er i den midterste skuffe"
+			play AudiofilerLivingLab/candle4_3Inc.mp3
+			break
 		elif [ "$input" = "3" ]; then
-    			echo " "
-			echo "3: Yes, that’s right"
-			play LivingLabAudio/candle2_4.mp3
-			control="1"
+			echo " "
+			echo "vi skal finde et stearinlys i en af skufferne"
+			play AudiofilerLivingLab/candle5.mp3
+			echo " "
+			echo "1: venstre side"
+			echo "2: højre side"
+			echo "3: gentag"
 		fi
-		break
 		done
 
 
-	elif [ "$incCond" = "noinc" ]; then
-	
-		echo "1: Repeat"
-		echo "2: Done"
-	
+	elif [ "$incCond" = "noInc" ]; then
+		
+		echo " "
+		echo "1: fortsæt"
+		echo "2: gentag"	    	
+
 		while true; do
 		read -rsn1 input
 	
 		if [ "$input" = "1" ]; then
     			echo " "
+			sleep 3
 			echo "I den venstre side"
 			play AudiofilerLivingLab/candle3_1noInc.mp3
-		elif [ "$input" = "2" ]; then
+			sleep 2
     			echo " "
 			echo "I den midterste skuffe"
 			play AudiofilerLivingLab/candle3_2noInc.mp3
-			control="1"
+			break
+		elif [ "$input" = "2" ]; then
+			echo " "
+			echo "vi skal finde et stearinlys i en af skufferne"
+			play AudiofilerLivingLab/candle5.mp3
+			echo " "
+			echo "1: fortsæt"
+			echo "2: gentag"
 		fi
-		break
 		done
+		
 	fi
-done
 
 echo "1: User puts candle on robot"
 echo "2: User keeps the candle"
@@ -112,6 +116,7 @@ elif [ "$input" = "1" ] && [ "$place" > "0" ]; then
     break
 elif [ "$input" = "2" ]; then
 	echo " "
+	break
 else
 break
 fi

@@ -2,7 +2,7 @@
 
 control="0"
 control2="0"
-echo $incCond
+
 
 echo "1: Continue"
 while true; do
@@ -25,7 +25,7 @@ if [ "$incCond" = "inc" ]; then
 	echo "2: Done"
 	echo "3: Repeat instructions"
 	echo " "
-elif [ "$incCond" = "noinc" ]; then
+elif [ "$incCond" = "noInc" ]; then
 	echo "3: Repeat instructions"
 	echo "2: Done"
 	echo " "
@@ -44,7 +44,7 @@ read -rsn1 input
 		play AudiofilerLivingLab/matches2_2noInc.mp3
 		fi 
 
-  	elif [ "$input" = "2" ]; then
+ 	elif [ "$input" = "2" ]; then
 		if [ "$incCond" = "inc" ]; then
 			echo " "
 			echo " 1: Right"
@@ -54,24 +54,31 @@ read -rsn1 input
 			if [ "$input" = "1" ]; then
 				echo " Ja nemlig"
 				play AudiofilerLivingLab/matches2_3Inc.mp3
+				control="1"
 			elif [ "$input" = "2" ]; then
 				echo "nej den anden beholder"
 				play AudiofilerLivingLab/matches2_4Inc.mp3
+				control="1"
 			fi
+		break
 		elif [ "$incCond" = "noInc" ]; then 
 			echo " "
-			echo "Yes, there in the box"
+			echo "Du finder dem i en af de hvide beholdere på den øverste hylde"
 			echo ""
-			play LivingLabAudio/napkins4.mp3
-			echo " "
-			echo "Great, please take it with you"
-			play LivingLabAudio/napkins5.mp3
+			play AudiofilerLivingLab/matches2_1noInc.mp3
+			echo ""
+			sleep 4
+			echo "På venstre side af beholderen med det gule låg"
+			play AudiofilerLivingLab/matches2_2noInc.mp3
 			control="1"
+			break
+		fi
+	
   	elif [ "$input" = "3" ]; then
    	echo " "
 	echo "They are on the top shelf"
 	echo " "
-	play LivingLabAudio/napkins3.mp3
+	play AudiofilerLivingLab/matches1.mp3
 	fi
 done
 done

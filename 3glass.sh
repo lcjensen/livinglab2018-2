@@ -1,5 +1,8 @@
 #!/bin/bash
 control="0"
+place="1"
+perCond="research"
+
 
 ###A glass
 echo "1: Continue"
@@ -43,7 +46,7 @@ elif [ "$input" = "2" ]; then
 	break
 elif [ "$input" = "3" ]; then
 	echo "vil du tage et glas"
-        play AudiofilerLivingLab/glass 5.mp3
+        play AudiofilerLivingLab/glass3.mp3
 	break
 fi
 done
@@ -59,7 +62,7 @@ if [ "$input" = "1" ]; then
 	if [ "$perCond" = "expert" ]; then
     	echo "Som ekspert ved du jo, at det er vigtigt at drikke rigelig med vand. De fleste deltagere drikker en halv liter efter den her leg."
 		play AudiofilerLivingLab/glass2_1expert.mp3
-		fi
+
 	elif [ "$perCond" = "research" ]; then
     	echo " "
 		echo "Forskning viser, at det er vigtigt at drikke rigelig med vand. De fleste deltagere drikker en halv liter efter den her leg."

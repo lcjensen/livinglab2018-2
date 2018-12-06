@@ -1,5 +1,5 @@
 #!/bin/bash
-
+control="0"
 
 ###Cookies or fruit
 echo "1: Continue"
@@ -25,7 +25,7 @@ if [ "$input" = "1" ]; then
 	fruit="0"
 	elif [ "$input" = "2" ]; then
     	echo " "
-	echo "ah, okay, du valgte et stykke frugt. Så skal du også have en lille knov. Den finder du lidt længere henne på køkkenbordet!"
+	echo "ah, okay, du valgte et stykke frugt. Så skal du også have en lille kniv. Den finder du lidt længere henne på køkkenbordet!"
 	play AudiofilerLivingLab/snack2_2fruit.mp3
 	fruit="1"
 fi

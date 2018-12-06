@@ -33,6 +33,7 @@ elif [ "$input" = "2" ]; then
 	read -rsn1 input
 	if [ "$input" = "1" ]; then
    		echo " "
+		sleep 3
     		echo "Du må gerne tage noget vand"
   		play AudiofilerLivingLab/table3water.mp3
     		break

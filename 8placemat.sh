@@ -1,5 +1,6 @@
 #!/bin/bash
 control="0"
+place="1"
 
 ###Placemat
 echo "1: Continue"
@@ -64,7 +65,7 @@ elif [ "$input" = "2" ]; then
     echo " "
     echo "Ah, den røde dækkeserviet. Det er også min favorit."
     echo " "
-    play LivingLabAudio/placemat2_1red.mp3
+    play AudiofilerLivingLab/placemat2_1red.mp3
     break
 fi
 done

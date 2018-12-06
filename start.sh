@@ -1,36 +1,20 @@
 #!/bin/bash
-echo "Gender"
-echo "1: Male"
-echo "2: Female"
+echo "Persuasion Condition"
+echo "1: None"
+echo "2: Expert"
+echo "3: Research"
 echo " "
 
 while true; do
 read -rsn1 input
 if [ "$input" = "1" ]; then
-	gender="male"
+	perCond="none"
     	break
 elif [ "$input" = "2" ]; then
-	gender="female"
+	perCond="expert"
     	break
-fi
-done
-
-echo "Persuasion Condition"
-echo "0: 0"
-echo "1: Gender"
-echo "2: People"
-echo " "
-
-while true; do
-read -rsn1 input
-if [ "$input" = "0" ]; then
-	perCond="0"
-    	break
-elif [ "$input" = "1" ]; then
-	perCond="gender"
-    	break
-elif [ "$input" = "2" ]; then
-	perCond="people"
+elif [ "$input" = "3" ]; then
+	perCond="research"
     	break
 fi
 done
@@ -46,7 +30,7 @@ if [ "$input" = "1" ]; then
 	incCond="inc"
     	break
 elif [ "$input" = "2" ]; then
-	incCond="noinc"
+	incCond="noInc"
     	break
 fi
 done
@@ -56,6 +40,5 @@ place="0"
 export place
 export incCond
 export perCond
-export gender
 
 . ./1greeting.sh
